@@ -7,7 +7,7 @@ const Card = db.define("Card", {
   groupName: { ...dtypes.pd.STR_REQ, values: Object.values(CARD_GROUPS) },
   title: { ...dtypes.pd.STR_REQ },
   content: { type: dtypes.STRING },
-  completedAt: { type: dtypes.BIGINT, defaultValue: Date.now },
+  completedAt: { type: dtypes.BIGINT },
 });
 
 export default Card;
