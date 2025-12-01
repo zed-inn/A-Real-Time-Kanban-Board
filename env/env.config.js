@@ -10,7 +10,18 @@ const server = {
   },
 };
 
+const db = {
+  pg: {
+    dialect: "postgres",
+    server: process.env.PG_SERVER ?? "localhost",
+    database: process.env.PG_DB ?? "kanban-nodejs",
+    username: process.env.PG_USERNAME ?? "postgres",
+    password: process.env.PG_PASSWORD ?? "password",
+  },
+  redis: { dialect: "redis", uri: process.env.REDIS_URI },
+};
+
 /**
  * Application Environment
  */
-export const env = { server };
+export const env = { server, db };
