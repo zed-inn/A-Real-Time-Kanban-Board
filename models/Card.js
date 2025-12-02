@@ -4,10 +4,14 @@ import db from "../db/pg.js";
 
 const Card = db.define("Card", {
   id: { ...dtypes.pd.PRIMARY_ID },
-  groupName: { ...dtypes.pd.STR_REQ, values: Object.values(CARD_GROUPS) },
+  groupName: {
+    ...dtypes.pd.STR_REQ,
+    values: Object.values(CARD_GROUPS),
+    unique: "groupOrder",
+  },
   title: { ...dtypes.pd.STR_REQ },
   content: { type: dtypes.STRING },
-  completedAt: { type: dtypes.BIGINT },
+  order: { type: dtypes.DECIMAL, allowNull: false, unique: "groupOrder" },
 });
 
 export default Card;
